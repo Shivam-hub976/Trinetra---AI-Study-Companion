@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Trinetra AI Study Companion</title>
+    <link rel="stylesheet" href="/frontend/style.css">
+</head>
+
+<body>
+    <h1>Trinetra: AI Study Companion</h1>
+    <div>
+        <img src="/frontend/Trinetra.jpg" alt="Trinetra Logo" class="header-img">
+
+    </div>
+
+    <div class="container">
+        <div class="card" id="summaryCard">
+            <h2>Smart Summary</h2>
+            <form id="uploadForm">
+                <input type="file" id="notesFile" accept=".txt,.pdf">
+                <button type="submit">Upload & Summarize</button>
+            </form>
+            <div id="summary"></div>
+        </div>
+        <div class="card" id="plannerCard">
+            <h2>Schedule Planner</h2>
+            <form id="plannerForm">
+                <label for="studyHours">Available study hours:</label>
+                <input type="number" id="studyHours" min="1" placeholder="e.g. 10">
+                <div id="subjectsContainer">
+                    <div class="subjectRow">
+                        <input type="text" class="subjectName" placeholder="Subject name">
+                        <input type="number" class="subjectPriority" min="1" max="5" value="3"
+                            title="Priority (1=Low, 5=High)">
+                        <input type="number" class="subjectDifficulty" min="1" max="5" value="3"
+                            title="Difficulty (1=Easy, 5=Hard)">
+                        <input type="number" class="subjectProficiency" min="1" max="5" value="3"
+                            title="Proficiency (1=Weak, 5=Strong)">
+                        <input type="date" class="subjectExamDate" title="Exam Date">
+                        <input type="number" class="subjectMinHours" min="0" step="0.5" placeholder="Min hrs"
+                            title="Minimum hours">
+                        <input type="number" class="subjectMaxHours" min="0" step="0.5" placeholder="Max hrs"
+                            title="Maximum hours">
+                        <button type="button" class="removeSubject">Remove</button>
+                    </div>
+                </div>
+                <button type="button" id="addSubject">Add Subject</button>
+                <button type="submit">Generate Study Plan</button>
+            </form>
+            <div class="helpText">
+                <strong>Directions:</strong><br>
+                <ul>
+                    <li>Enter each subject and set its <b>priority</b> (1=Low, 5=High).</li>
+                    <li>Set <b>difficulty</b> (1=Easy, 5=Hard) and <b>proficiency</b> (1=Weak, 5=Strong).</li>
+                    <li>Optionally, add <b>exam date</b> (subjects with sooner exams get more hours).</li>
+                    <li>Set <b>min/max hours</b> if you want to limit time for a subject.</li>
+                    <li>Default values are chosen if you leave a field blank.</li>
+                </ul>
+                <em>Example: Math (priority 5, difficulty 4, proficiency 2, exam date 2025-10-10, min 2, max 6)</em>
+            </div>
+            <div id="plan"></div>
+        </div>
+    </div>
+    <div class="footer-logo">
+        <img src="/frontend/trinetra logo.png" alt="Trinetra Logo" class="footer-img">
+        <p class="footer-text"><span>&copy;</span> IIT PATNA : Agnition 2025. All Rights Reserved.</p>
+    </div>
+    <script src="/frontend/script.js"></script>
+</body>
+
+</html>
